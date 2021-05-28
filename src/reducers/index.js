@@ -3,9 +3,11 @@ const todoService = new TodoService();
 const initialState = {
     todos: [],
     loading: true,
+    error: false,
     inputValue: '',
     editInputValue: '',
-    id: 200,
+    id: 200
+   
 }
 
 const reducer = (state = initialState, action) => {
@@ -113,6 +115,13 @@ const reducer = (state = initialState, action) => {
                     ...state.todos.slice(stopIndex+1)
                 ]
             }
+        case 'TODO_ERROR' :
+            return {
+                ...state,
+                loading: false,
+                error: true
+            }
+
         default :
             return state
     }

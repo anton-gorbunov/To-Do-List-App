@@ -52,6 +52,11 @@ const cancelEdit = (id) => {
         payload:id
     }
 }
+const todoError = () => {
+    return {
+        type: 'TODO_ERROR'
+    }
+}
 export {
     todosLoaded,
     todosCheckChange,
@@ -61,5 +66,6 @@ export {
     editTodo,
     finishEditTodo,
     onEditInputChange,
-    cancelEdit
+    cancelEdit,
+    todoError
 }

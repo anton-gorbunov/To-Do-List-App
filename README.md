@@ -11,7 +11,7 @@ A to-do list application made with React-Redux.
 
 Clone the Project
 
-`$ git clone https://github.com/anton-gorbunov/To-Do-List-App.git`
+`$ git clone https://github.com/anton-gorbunov/To-Do-List-App.git`<br/>
 `$ cd to-do-app`
 
 ## Installation
