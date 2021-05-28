@@ -1,17 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {onEditInputChange, finishEditTodo, stopEdit} from '../../actions';
+import {onEditInputChange, finishEditTodo, cancelEdit} from '../../actions';
 
 import editIcon from './edit_end.png';
 import editStopIcon from './edit_stop.png';
+import './editTodo.scss';
 
-import './editTodo.css';
-
-const EditTodo = ({items,stopEdit, onEditInputChange, finishEditTodo, inputValue}) => {
-    const {id} = items
+const EditTodo = ({id, cancelEdit, onEditInputChange, finishEditTodo, inputValue}) => {
     return (
         <li className="todoListItem__editedItem">
-        <input value={inputValue} onChange={onEditInputChange} className="todoListItem__input"/>
+        <input
+            value={inputValue} 
+            onChange={onEditInputChange} 
+            className="todoListItem__input"
+        />
         <button 
                 onClick={() => finishEditTodo(id)}
                 className="todoListItem__button"
@@ -19,7 +21,7 @@ const EditTodo = ({items,stopEdit, onEditInputChange, finishEditTodo, inputValue
             <img src={editIcon} alt="edit"/>
         </button>
         <button 
-                onClick={() => stopEdit(id)}
+                onClick={() => cancelEdit(id)}
                 className="todoListItem__button"
         >
             <img src={editStopIcon} alt="dustbin"/>
@@ -35,8 +37,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     finishEditTodo,
     onEditInputChange,
-    stopEdit
+    cancelEdit
 
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(EditTodo);

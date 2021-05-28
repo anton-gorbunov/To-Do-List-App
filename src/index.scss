@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  margin-top: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+@media (max-width: 992px) {
+  .app{
+    width:600px;
+  }
+  .todoListItem__item {
+    grid-template-columns: 20px 30px 410px 70px 70px;
+  }
+  .todoListItem__editedItem {
+    grid-template-columns: 460px 70px 70px;
+  }
+  .todoListItem__input {
+    width:430px;
+  }
+}
+@media (max-width: 768px){
+  .app{
+    width:500px;
+  }
+  .todoListItem__item {
+    grid-template-columns: 20px 30px 310px 70px 70px;
+  }
+  .todoListItem__editedItem {
+    grid-template-columns: 360px 70px 70px;
+  }
+  .todoListItem__input {
+    width:330px;
+  }
+}
+@media (max-width: 576px){
+  body {
+    margin-top: 0;
+  }
+  .app{
+    width:100%;
+  }
+  .todoListItem__item {
+    grid-template-columns: 7% 9% 55% 14% 14%;
+  }
+  .todoListItem__editedItem {
+    grid-template-columns: 71% 14% 14%;
+  }
+  .todoListItem__input {
+    width:90%;
+  }
+  .todoListItem__button {
+    justify-self: flex-end;
+    width:40px;
+  }
+  button > img {
+    width:20px;
+    height:20px;
+  }
+}

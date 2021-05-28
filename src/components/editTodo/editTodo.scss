@@ -9,7 +9,7 @@
     border-radius: 5px;
     padding-left: 10px;
     width:610px;
-}
-.todoListItem__input:focus {
-    outline: none;
+    &:focus {
+        outline: none;
+    }
 }

@@ -16,16 +16,16 @@ const deleteTodo = (id) => {
         payload: id
     }
 }
-const onInputChange = (e) => {
+const onInputChange = (event) => {
     return {
         type: 'INPUT_CHANGE',
-        payload: e
+        payload: event    
     }
 }
-const addTodoItem = (e) => {
+const addTodoItem = (event) => {
     return {
         type: 'ADD_TODO',
-        payload: e
+        payload: event    
     }
 }
 const editTodo = (id) => {
@@ -40,15 +40,15 @@ const finishEditTodo = (id) => {
         payload: id
     }
 }
-const onEditInputChange = (e) => {
+const onEditInputChange = (event) => {
     return {
         type: 'EDIT_INPUT_CHANGE',
-        payload: e
+        payload: event    
     }
 }
-const stopEdit = (id) => {
+const cancelEdit = (id) => {
     return {
-        type: 'STOP_EDIT',
+        type: 'CANCEL_EDIT',
         payload:id
     }
 }
@@ -61,5 +61,5 @@ export {
     editTodo,
     finishEditTodo,
     onEditInputChange,
-    stopEdit
+    cancelEdit
 }

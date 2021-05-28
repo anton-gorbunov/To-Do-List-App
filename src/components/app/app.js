@@ -5,7 +5,7 @@ import AddTodo from '../addTodo';
 import TodoList from '../todoList';
 import About from '../pages/about';
 
-import './app.css';
+import './app.scss';
 
 const App = () => {
     return (

@@ -9,6 +9,10 @@
 .todoListItem__item:last-child {
     border-bottom: none;
 }
+.todoListItem__title {
+    padding:0 10px;
+    box-sizing:border-box;
+}
 .todoListItem__button{
     padding:7px 20px;
     background-color: #F3F3F3;

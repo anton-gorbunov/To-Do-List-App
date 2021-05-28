@@ -5,18 +5,18 @@ import EditTodo from '../editTodo';
 
 import dustbin from './dustbin.png';
 import editIcon from './edit.png';
-import './todoListItem.css';
+import './todoListItem.scss';
 
 
 const TodoListItem = ({items, todosCheckChange, deleteTodo, editTodo}) => {
     const {id, title,completed,edit} = items;
+    const indicator = completed ? <span>&#10004;</span> : <span>&#10006;</span>
     let classList = 'todoListItem__indicator';
     if (edit) {
         return (
-          <EditTodo items={items}/>
+          <EditTodo id={id}/>
         )
     }
-
     if (!completed) {
         classList += ' not_completed';
     } else {
@@ -29,7 +29,7 @@ const TodoListItem = ({items, todosCheckChange, deleteTodo, editTodo}) => {
                 checked={completed} 
                 onChange={() => todosCheckChange(id)}
             />
-            <div className={classList}>{completed ? <span>&#10004;</span> : <span>&#10006;</span>}</div>
+            <div className={classList}>{indicator}</div>
             <span className="todoListItem__title">{title}</span>
             <button 
                     onClick={() => editTodo(id)}

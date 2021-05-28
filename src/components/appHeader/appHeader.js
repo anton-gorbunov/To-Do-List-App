@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import './appHeader.css';
+import './appHeader.scss';
 
 const AppHeader = () => {
     return (

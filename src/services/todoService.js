@@ -14,17 +14,14 @@ export default class TodoService {
         
     }
     postTodos = async (data) => {
-        const resp = await fetch(this._apiBase, {
+        const res = await fetch(this._apiBase, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
             body:JSON.stringify(data)
         });
-        if (!resp.ok) {
-            throw new Error(`Could not post data. status: ${resp.status}`);
-        }
-        return resp;
+        return res;
     }
     deleteTodoItem = async (id) => {
        return await fetch(`${this._apiBase}/${id}`, {

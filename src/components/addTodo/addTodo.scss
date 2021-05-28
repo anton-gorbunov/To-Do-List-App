@@ -1,0 +1,25 @@
+.addTodo{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    &__button {
+        background-color: #7CC576;
+    padding:10px 20px;
+    color:#fff;
+    font-weight: bold;
+    font-size: 16px;
+    border:none;
+    cursor:pointer;
+    border-radius: 5px;
+    width:20%
+    }
+    &__input {
+        width:77%;
+        border:1px solid #D2D2D2;
+        border-radius: 5px;
+        padding-left: 10px;
+        &:focus{
+            outline: none;
+        }
+    }
+}

@@ -20,12 +20,11 @@ const reducer = (state = initialState, action) => {
             const todosId = action.payload;
             const index = state.todos.findIndex(item => item.id === todosId);
             const oldTodo = state.todos[index];
-            const newTodo = {...oldTodo, completed: !oldTodo.completed};
             return {
                 ...state,
                 todos: [
                     ...state.todos.slice(0, index),
-                    newTodo,
+                    {...oldTodo, completed: !oldTodo.completed},
                     ...state.todos.slice(index+1)
                 ]
             }
@@ -52,7 +51,8 @@ const reducer = (state = initialState, action) => {
             const newItem = {
                 id: ++state.id,
                 title: state.inputValue,
-                completed: false
+                completed: false,
+                edit:false
             }
             if (state.inputValue !== '') {
                 todoService.postTodos(newItem)
@@ -101,7 +101,7 @@ const reducer = (state = initialState, action) => {
                 ]
 
             }
-        case 'STOP_EDIT' :
+        case 'CANCEL_EDIT' :
             const stopId = action.payload;
             const stopIndex = state.todos.findIndex(item => item.id === stopId);
             const stopTodo = state.todos[stopIndex];

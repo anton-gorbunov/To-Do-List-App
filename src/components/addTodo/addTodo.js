@@ -2,12 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {addTodoItem, onInputChange} from '../../actions';
 
-import './addTodo.css';
+import './addTodo.scss';
 
 const AddTodo = ({addTodoItem, inputValue, onInputChange}) => {
     return (
         <form 
-            className="addTodo__form"
+            className="addTodo"
             onSubmit={addTodoItem}
         >
             <input 

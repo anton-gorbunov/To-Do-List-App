@@ -3,16 +3,15 @@ import TodoListItem from '../todoListItem';
 import Spinner from '../spinner';
 import {connect} from 'react-redux';
 import {todosLoaded} from '../../actions';
-import WithTodoService from '../withTodoService';
+import TodoService from '../../services/todoService';
 
-
-import './todoList.css';
+import './todoList.scss';
 
 
 export class TodoList extends Component {
-    
     componentDidMount() {
-        this.props.todoService.getTodos()
+        const todoService = new TodoService();
+        todoService.getTodos()
         .then(res => this.props.todosLoaded(res));
     }
     render() {
@@ -44,4 +43,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     todosLoaded
 }
-export default WithTodoService()(connect(mapStateToProps,mapDispatchToProps )(TodoList));
+export default connect(mapStateToProps,mapDispatchToProps)(TodoList);
