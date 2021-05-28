@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+import './appHeader.css';
+
 const AppHeader = () => {
     return (
         <header className="header">
@@ -8,8 +10,12 @@ const AppHeader = () => {
                 <nav>
                     <ul className="header__list">
                         <li className="header__item">
-                            <Link to="/home">Home</Link>
-                            <Link to="/about">About</Link>
+                            <Link className="header__link "to="/">Home</Link>
+                            <span>|</span>
+                        </li>
+                        
+                        <li className="header__item">
+                            <Link className="header__link "to="/about">About</Link>
                         </li>
                     </ul>
                 </nav>

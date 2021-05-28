@@ -1,0 +1,15 @@
+.todoListItem__editedItem {
+    display: grid;
+    grid-template-columns: 660px 70px 70px;
+    list-style-type: none;
+    padding:20px 5px;
+}
+.todoListItem__input {
+    border:1px solid #D2D2D2;
+    border-radius: 5px;
+    padding-left: 10px;
+    width:610px;
+}
+.todoListItem__input:focus {
+    outline: none;
+}

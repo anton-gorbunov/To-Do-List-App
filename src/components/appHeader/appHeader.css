@@ -1,0 +1,29 @@
+.header{
+    /* background-color: #333333; */
+    /* background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(44,44,44,1) 1%, rgba(83,83,83,1) 30%); */
+    background: linear-gradient(to bottom right, #2C2C2C, #949494);
+    padding: 10px;
+    color:#fff;
+}
+.header__title{
+    margin-top: 0;
+    text-align: center; 
+    font-size: 40px;
+}
+.header__list {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+}
+.header__item{
+    list-style-type: none;
+   
+}
+.header__link {
+    color:#fff;
+    text-decoration: none;
+    padding:3px 10px;
+}
+.header__link:hover {
+    text-decoration: underline;
+}
