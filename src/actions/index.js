@@ -16,16 +16,10 @@ const deleteTodo = (id) => {
         payload: id
     }
 }
-const onInputChange = (event) => {
-    return {
-        type: 'INPUT_CHANGE',
-        payload: event    
-    }
-}
-const addTodoItem = (event) => {
+const addTodoItem = (todoItem) => {
     return {
         type: 'ADD_TODO',
-        payload: event    
+        payload: todoItem
     }
 }
 const editTodo = (id) => {
@@ -61,7 +55,6 @@ export {
     todosLoaded,
     todosCheckChange,
     deleteTodo,
-    onInputChange,
     addTodoItem,
     editTodo,
     finishEditTodo,

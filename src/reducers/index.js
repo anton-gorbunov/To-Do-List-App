@@ -4,12 +4,9 @@ const initialState = {
     todos: [],
     loading: true,
     error: false,
-    inputValue: '',
     editInputValue: '',
     id: 200
-   
 }
-
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'TODOS_LOADED' :
@@ -33,7 +30,6 @@ const reducer = (state = initialState, action) => {
         case 'DELETE_TODO' : 
             const deletedTodosId = action.payload;
             const deletedIndex = state.todos.findIndex(item => item.id === deletedTodosId);
-            
             todoService.deleteTodoItem(deletedTodosId)
             .then(res=>console.log(res));
             return {
@@ -43,20 +39,14 @@ const reducer = (state = initialState, action) => {
                     ...state.todos.slice(deletedIndex+1)
                 ]
             }
-        case 'INPUT_CHANGE' : 
-            return {
-                ...state,
-                inputValue: action.payload.target.value
-            }
         case 'ADD_TODO' :
-            action.payload.preventDefault();
             const newItem = {
                 id: ++state.id,
-                title: state.inputValue,
+                title: action.payload,
                 completed: false,
                 edit:false
             }
-            if (state.inputValue !== '') {
+            if (action.payload !== '') {
                 todoService.postTodos(newItem)
                 .then(res => {
                     console.log(res)
@@ -66,8 +56,7 @@ const reducer = (state = initialState, action) => {
                     todos: [
                         ...state.todos,
                         newItem
-                    ],
-                    inputValue: ''
+                    ]
                 }
             }
         case 'EDIT_INPUT_CHANGE' : 
@@ -79,7 +68,6 @@ const reducer = (state = initialState, action) => {
             const editedId = action.payload;
             const editedIndex = state.todos.findIndex(item => item.id === editedId);
             const oldItem = state.todos[editedIndex];
-           
             return {
                 ...state,
                 editInputValue: oldItem.title,
@@ -88,7 +76,6 @@ const reducer = (state = initialState, action) => {
                     {...oldItem, edit: true},
                     ...state.todos.slice(editedIndex + 1)
                 ]
-
             }
         case 'FINISH_EDIT' :
             const finishId = action.payload;
@@ -101,7 +88,6 @@ const reducer = (state = initialState, action) => {
                     {...finishTodo, title: state.editInputValue, edit: false},
                     ...state.todos.slice(finishIndex+1)
                 ]
-
             }
         case 'CANCEL_EDIT' :
             const stopId = action.payload;
@@ -121,7 +107,6 @@ const reducer = (state = initialState, action) => {
                 loading: false,
                 error: true
             }
-
         default :
             return state
     }

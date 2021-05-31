@@ -47,15 +47,10 @@ const TodoListItem = ({items, todosCheckChange, deleteTodo, editTodo}) => {
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-      
-    }
-}
 const mapDispatchToProps = {
     todosCheckChange, 
     deleteTodo,
     editTodo
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoListItem);
+export default connect(null, mapDispatchToProps)(TodoListItem);
