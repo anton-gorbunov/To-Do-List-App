@@ -1,11 +1,11 @@
 import TodoService from '../services/todoService';
+import uuid from 'react-uuid';
 const todoService = new TodoService();
 const initialState = {
     todos: [],
     loading: true,
     error: false,
-    editInputValue: '',
-    id: 200
+    editInputValue: ''
 }
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -15,8 +15,8 @@ const reducer = (state = initialState, action) => {
                 loading: false,
                 todos: action.payload
             }
-        case 'TODOS_COMPLETED_CHANGE' :
-            const todosId = action.payload;
+        case 'TODOS_COMPLETED_CHANGE' : 
+            const todosId = action.checked;
             const index = state.todos.findIndex(item => item.id === todosId);
             const oldTodo = state.todos[index];
             return {
@@ -28,7 +28,7 @@ const reducer = (state = initialState, action) => {
                 ]
             }
         case 'DELETE_TODO' : 
-            const deletedTodosId = action.payload;
+            const deletedTodosId = action.delete;
             const deletedIndex = state.todos.findIndex(item => item.id === deletedTodosId);
             todoService.deleteTodoItem(deletedTodosId)
             .then(res=>console.log(res));
@@ -41,12 +41,12 @@ const reducer = (state = initialState, action) => {
             }
         case 'ADD_TODO' :
             const newItem = {
-                id: ++state.id,
-                title: action.payload,
+                id: uuid(),
+                title: action.added,
                 completed: false,
                 edit:false
             }
-            if (action.payload !== '') {
+            if (action.added !== '') {
                 todoService.postTodos(newItem)
                 .then(res => {
                     console.log(res)
@@ -62,10 +62,10 @@ const reducer = (state = initialState, action) => {
         case 'EDIT_INPUT_CHANGE' : 
         return {
             ...state,
-            editInputValue: action.payload.target.value
+            editInputValue: action.edited.target.value
         }
         case 'EDIT_TODO' :
-            const editedId = action.payload;
+            const editedId = action.edited;
             const editedIndex = state.todos.findIndex(item => item.id === editedId);
             const oldItem = state.todos[editedIndex];
             return {
@@ -78,7 +78,7 @@ const reducer = (state = initialState, action) => {
                 ]
             }
         case 'FINISH_EDIT' :
-            const finishId = action.payload;
+            const finishId = action.edited;
             const finishIndex = state.todos.findIndex(item => item.id === finishId);
             const finishTodo = state.todos[finishIndex];
             return {
@@ -90,7 +90,7 @@ const reducer = (state = initialState, action) => {
                 ]
             }
         case 'CANCEL_EDIT' :
-            const stopId = action.payload;
+            const stopId = action.canceled;
             const stopIndex = state.todos.findIndex(item => item.id === stopId);
             const stopTodo = state.todos[stopIndex];
             return {

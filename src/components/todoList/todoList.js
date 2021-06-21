@@ -12,9 +12,10 @@ import './todoList.scss';
 export class TodoList extends Component {
     componentDidMount() {
         const todoService = new TodoService();
-        todoService.getTodos()
-        .then(res => this.props.todosLoaded(res))
-        .catch(error => this.props.todoError())
+        if (this.props.todoItems.length === 0) {
+            todoService.getTodos()
+           .then(res => this.props.todosLoaded(res))
+        }
     }
     render() {
     const {todoItems, loading, error} = this.props;

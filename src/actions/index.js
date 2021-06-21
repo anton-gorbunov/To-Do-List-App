@@ -7,43 +7,43 @@ const todosLoaded = (newTodos) => {
 const todosCheckChange = (id) => {
     return {
         type: 'TODOS_COMPLETED_CHANGE',
-        payload:id
+        checked:id
     }
 }
 const deleteTodo = (id) => {
     return {
         type: 'DELETE_TODO',
-        payload: id
+        delete: id
     }
 }
 const addTodoItem = (todoItem) => {
     return {
         type: 'ADD_TODO',
-        payload: todoItem
+        added: todoItem
     }
 }
 const editTodo = (id) => {
     return {
         type: 'EDIT_TODO',
-        payload: id
+        edited: id
     }
 }
 const finishEditTodo = (id) => {
     return {
         type: 'FINISH_EDIT',
-        payload: id
+        edited: id
     }
 }
 const onEditInputChange = (event) => {
     return {
         type: 'EDIT_INPUT_CHANGE',
-        payload: event    
+        edited: event    
     }
 }
 const cancelEdit = (id) => {
     return {
         type: 'CANCEL_EDIT',
-        payload:id
+        canceled :id
     }
 }
 const todoError = () => {

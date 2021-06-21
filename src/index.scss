@@ -46,6 +46,11 @@ code {
   }
   .app{
     width:100%;
+    padding: 10px 10px 0 10px;
+    box-sizing: border-box;
+  }
+  .addTodo__button {
+    padding:10px;
   }
   .todoListItem__item {
     grid-template-columns: 7% 9% 55% 14% 14%;
