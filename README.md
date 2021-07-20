@@ -1,7 +1,7 @@
 # React To-Do App
 
 A to-do list application made with React-Redux.
-[view...](http://uber.web-development2020.com)
+[view...]http://todo.web-development2020.com/)
 
 ## Built Using
     React.js
